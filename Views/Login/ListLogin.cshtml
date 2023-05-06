@@ -1,0 +1,46 @@
+﻿@model IEnumerable<RegistrationLogin.Models.LoginVM>
+
+@{
+    ViewData["Title"] = "ListLogin";
+}
+
+<h1>ListLogin</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.userid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.userid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                <a class="btn btn-danger" asp-controller="Login" asp-action="EditLogin" asp-route-userid="@item.userid">Edit</a>
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
